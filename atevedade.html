@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h1>{{ "Editar filme" if editando else "Novo filme" }}</h1>
+<form method="post">
+  <label>Título <input type="text" name="titulo" value="{{ filme.titulo or '' }}" required></label>
+  <label>Gênero <input type="text" name="genero" value="{{ filme.genero or '' }}" required></label>
+  <label>Ano de lançamento <input type="number" name="ano" value="{{ filme.ano or '' }}" required></label>
+  <label>Nota (1 a 10) <input type="number" name="nota" min="1" max="10" value="{{ filme.nota or '' }}" required></label>
+  <br><button type="submit">Salvar</button>
+  <a href="{{ url_for('index') }}">Cancelar</a>
+</form>
+{% endblock %}
